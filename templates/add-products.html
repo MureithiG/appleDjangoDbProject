@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add products</title>
+</head>
+<body>
+<h1>Add products</h1>
+{% for message in messages %}
+    <p>{{ message }}</p>
+{% endfor %}
+
+    <form action="{% url 'add-products-url' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Product name"><br><br>
+        <input type="text" name="qtty" placeholder="Product quantity"><br><br>
+        <input type="text" name="price" placeholder="Product price"><br><br>
+        <input type="text" name="desc" placeholder="Product description"><br><br>
+        <input type="submit" value="Save">
+    </form>
+
+</body>
+</html>
